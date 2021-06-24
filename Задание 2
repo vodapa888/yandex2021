@@ -1,0 +1,8 @@
+SELECT a.office_name
+FROM buildings as a
+left join consumption as b 
+on a.coffee_point_id = b.coffee_point_id
+GROUP BY b.office_id
+ORDER BY count(a.cookies) DESC
+WHERE 
+LIMIT 10;
