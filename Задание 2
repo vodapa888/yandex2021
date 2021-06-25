@@ -3,6 +3,6 @@ FROM buildings as a
 left join consumption as b 
 on a.coffee_point_id = b.coffee_point_id
 GROUP BY a.office_id
-ORDER BY count(b.cookies) DESC
-WHERE cookies < 1000
+ORDER BY sum(b.cookies) DESC
+HAVING sum(b.cookies) < 1000
 LIMIT 10;
